@@ -1,0 +1,2495 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Introdução à linguagem R</title>
+
+
+
+	<link href="css/bootstrap.css" rel="stylesheet">
+	<link href="css/main.css" rel="stylesheet">
+	<link href="css/grid.css" rel="stylesheet">
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+		rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+	<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" crossorigin="anonymous"></script>
+	<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+	<script src="js/grid.js"></script>
+
+
+	
+
+
+
+
+</head>
+
+
+
+<body onload="grid_init();">
+	
+<header>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-menu sticky-top">
+		<div class="container">
+
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+				aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarResponsive">
+				<img src="img/uniglobo.svg" style="height: 40px; width: auto;">
+
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item active nav-link"> MENU |</li>
+					<li class="nav-item ">
+						<div style="font-size: 1rem;" class="nav-link text_menu menu01 dropdown-item grid_disabled " href="#menu1" en="0">Sintaxe básica de R
+							<span class="sr-only">(current)</span> </div>
+					</li>
+					<li class="nav-item ">
+						<div style="font-size: 1rem;" class="nav-link text_menu menu02 dropdown-item grid_disabled" href="#menu2" en="0">Estrutura de dados
+						</div>
+					</li>
+					
+
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+</header>
+
+
+<div id="loader-wrapper">
+	<div id="loader"></div>
+
+	<div class="loader-section section-left"></div>
+	<div class="loader-section section-right"></div>
+
+</div>
+
+
+	<!-- Exemplo de Imagem Full -->
+	<div class='container-fluid bg_capa text-center px-0   position-relative ' style="min-height: 90vh;">
+		<div class=" row justify-content-center ">
+			<div class="col-12 col-md-7 mb-5 pt-5" data-aos="zoom-out" data-aos-easing="ease-in" data-aos-delay="2000" data-aos-offset="0">
+				<img src='img/logo_curso.png' alt='' class="img-fluid  ">
+
+			</div>
+			<div class="col-12 text-center mb-2" data-aos="fade-down" data-aos-easing="ease-in" data-aos-delay="2000" data-aos-offset="0" >
+
+			<h3><a class="text_yellow text-center pointer" href="#menu1" style="text-shadow: 0px 0px 5px #000"><strong onclick="goto('block0');"><i id="btn-next-0" class="fas fa-chevron-circle-down blink_me"></i><br> INICIAR</strong></a></h3>
+			</div>
+
+			
+		</div>
+		
+	</div>
+	<!-- barra da capa -->
+	<div class='container-fluid bg-transparent  pt-5 '>
+		<div class="row  p-0">
+			<img src="img/imagem_1.png" alt="" class="img-fluid position-relative p-0" style="margin-top: -15%;">
+		</div>
+	</div>
+	<!-- Fim da Imagem-->
+
+
+	
+
+
+<div id="block0" style="display: none;">
+
+	
+	
+
+	
+	
+	
+
+
+
+	<!-- Texto simples -->
+	<div class='container-fluid bg-black py-5 my-1 menu01' id="menu1">
+		<div class='container'>
+			<div class='row justify-content-center align-items-center'>
+				<div class='col-12 text-center'>
+					<h1 class='text_yellow' style="font-size: 6rem; font-weight: 700; " data-aos="flip-up" data-aos-easing="ease-in" data-aos-delay="300" data-aos-offset="0" >SINTAXE BÁSICA DE R</h1>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Fim texto simples -->
+	
+
+
+
+	
+	
+	<div class="container-fluid bg-black pb-3 grid_section" grid-section="1">
+		<div class='container'>
+			<div class="row pt-5">
+				<div class="col-12 text-white">
+					<h1 class="text_yellow" data-aos="fade-right" data-aos-easing="ease-in" data-aos-delay="300" data-aos-offset="0">Boas-vindas</h1>
+				</div>
+			</div>
+			<div class="row m-1 justify-content-center py-3">
+				<div class="col-12 col-md-8 embed-responsive embed-responsive-16by9">
+					<iframe class="embed-responsive-item mb-5" src="https://player.vimeo.com/video/554470653" allowfullscreen></iframe>
+				
+				</div>
+				<div class="col-12 ">
+					<p class="text_yellow mt-5 text-center">Carlos Eduardo Padilha | Coordenador de Exibição e Distribuição
+					</p>
+				</div>
+
+			</div>
+		</div>	
+	</div>
+
+	<div class="container-fluid bg_capa_3  ">
+		<div class='container'>
+			<div class="row pt-5">
+				<div class="col-12 text-white">
+					<h1 class="text-dark" data-aos="fade-right" data-aos-easing="ease-in" data-aos-delay="300" data-aos-offset="0">Tutoria</h1>
+				</div>
+			</div>
+			<div class="row m-1 justify-content-center py-3">
+				<div class="col-12 col-md-8 embed-responsive embed-responsive-16by9">
+					<iframe class="embed-responsive-item" src="https://player.vimeo.com/video/553098682" allowfullscreen></iframe>
+				</div>
+				<div class="col-12 ">
+					<p class=" mt-5 text-center">Alexandre Nietupski | Analista de Exibição
+						
+					</p>
+				</div>
+			</div>
+		</div>	
+	</div>
+
+	
+
+	
+
+
+
+	<div class="container-fluid my-5">
+		<div class='container'>
+			<hr class="bg_yellow ">
+		</div>
+	</div>
+
+	<div class='container-fluid my-5' data-aos="zoom-out" data-aos-easing="ease-in" data-aos-delay="300" data-aos-offset="0">
+		<div class='container'>
+			<div class='row text-center justify-content-center'>
+				<div class='col-10 text-center'>
+					<h1 class="text_yellow" style="font-size: 7rem; font-weight: 700; " >FÓRUM</h1>
+					<h3 style="font-size: 3rem; font-weight: 700; ">de boas vindas</h3>
+					<p class="mt-5">Chegou a hora de se apresentar e conhecer seus colegas de curso. Conte para nós um pouco sobre suas atividades na Afiliada.</p>
+					<p>Acesse o Fórum na sua turma e compartilhe sua experiência.</p>
+						
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container-fluid my-5">
+		<div class='container'>
+			<hr class="bg_yellow ">
+		</div>
+	</div>
+
+	<!--div class='container-fluid my-5 '>
+		<div class='container'>
+			<div class='row justify-content-center align-items-center'>
+				<div class='col-12 col-md-12 col-lg-6'>
+					<p>Na página do curso você vai encontrar uma seção onde podem ser feito os downloads dos arquivos que usaremos com exemplo no vídeos e que podem servir de auxílio para as atividades.
+					</p>
+				</div>
+				<div class='col-12 col-md-12 col-lg-6' >
+					<div class='row align-items-center'>
+						<div class='col-12 text-center '>
+								<img src='img/imagem_4.jpg' alt='' title="" class=' img-fluid '>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div-->
+
+	
+	<div class='container-fluid mb-0 pt-5 '>
+		<div class="row  p-0">
+			<img src="img/imagem_1.png" alt="" class="img-fluid position-relative p-0" >
+		</div>
+	</div>
+	<div class="container-fluid pb-5  text-white text-center bg-black">
+	</div>
+
+	<!-- Texto simples -->
+	<div class='container-fluid my-1 py-5 bg_R'>
+		<div class='container'>
+			<div class='row  align-items-center'>
+				<div class='col-12 col-md-6'>
+					<h1 class='uppercase mb-5 text_yellow' data-aos="fade-right" data-aos-easing="ease-in" data-aos-delay="300" data-aos-offset="0"><strong>O que é R?</strong></h1>
+					<p class="text-white" >R  é pacote open-source de software para Análise de Dados e Estatística. Com uma comunidade bastante ativa, atinge a ordem de centenas de milhares de usuários, hoje.</p>
+					<p class="text-white" >Foi criado em 1993 por Ross Ihaka e Robert Gentleman, do Departamento de Estatística da Universidade de Auckland, na Nova Zelândia, como uma implementação distinta de um produto da AT&T, antiga Bell Laboratories, o "S".</p>
+					<p class="text-white" >Hoje é mantida sobretudo pela R Foundation for Statistical Computing, com sede em Viena. Em relação a outros produtos que processam datasets em RAM, a performance do R é comparável, ou superior.</p>
+					
+				</div>
+				<div class='col-12 col-md-6'>
+					<img src='img/imagem_20.png' alt=''  class='figure-img img-fluid rounded pl-5 pt-5'>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Fim texto simples -->
+	<div class="container-fluid my-1 bg-black pb-3">
+		<div class='container'>
+			<div class="row pt-5">
+				<div class="col-12 text-white">
+					<p>Antes de saber o que se poder fazer com o R, assista o vídeo abaixo, onde o tutor, Alexandre Nietupski, explica o passo a passo de como instalar e configurar o ambiente de laboratório.
+					</p>
+				</div>
+			</div>
+			<div class="row pt-5">
+				<div class="col-12 text-white">
+					<h1 class="text_yellow" data-aos="fade-right" data-aos-easing="ease-in" data-aos-delay="300" data-aos-offset="0">INSTALAÇÃO E CONFIGURAÇÃO DO AMBIENTE DE LABORATÓRIO
+					</h1>
+				</div>
+			</div>
+			<div class="row m-1 justify-content-center py-3">
+				<div class="col-12 col-md-8 embed-responsive embed-responsive-16by9">
+					<iframe class="embed-responsive-item mb-5" src="https://player.vimeo.com/video/524012500" allowfullscreen></iframe>
+				
+				</div>
+				
+
+			</div>
+		</div>	
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	<!-- Texto simples -->
+	<div class='container-fluid my-5'>
+		<div class='container'>
+			<div class='row justify-content-center align-items-center'>
+				<div class='col-12'>
+					<h1 class="mb-5"  data-aos="fade-right" data-aos-easing="ease-in" data-aos-delay="300" data-aos-offset="0"><strong>O que podemos fazer com R?</strong></h1>
+
+					<p>Deixar o Excel para outras funções. Com o R, é possível “digerir” massas de dados mais facilmente, e gerar insights. Usar um pouco de Estatística, Mineração de Dados, Machine Learning, Otimização...
+					</p>
+					<p>A pergunta correta é: <span class="text_yellow" style="font-size: 1.7rem; "><strong>“O que podemos fazer com os nossos dados?”</strong></span></p>
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Fim texto simples -->
+	
+	<!-- Exemplo de imagem -->
+	<div class='container-fluid mb-5'>
+		<div class='container'>
+			<div class='row justify-content-center align-items-center'>
+				<div class='col-12 col-md-12 col-lg-12'>
+					<div class='row align-items-center'>
+						<div class='col-12 text-center order-1'>
+							<figure class="figure">
+								<img src='img/imagem_7.png' alt=''  class='figure-img img-fluid rounded '>
+							</figure>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- fim de imagem -->
+
+	<!-- Texto simples -->
+	<div class='container-fluid my-5'>
+		<div class='container'>
+			<div class='row justify-content-center align-items-center'>
+				<div class='col-12'>
+					<p>Conheça a seguir, alguns termos que serão utilizados ao longo do curso:
+
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Fim texto simples -->
+	
+	
+	
+	<div class="container-fluid my-5">
+		<div class='container'>
+			<figcaption class="fig-caption mb-3 text-muted text-center"><i class="fas fa-mouse-pointer"></i> Clique sobre os tópicos abaixo</figcaption>
+
+			<div class="row justify-content-center">
+			
+				<button  type="button" class=" my-3 col-12 col-md-4 btn btn-dark btn-block border" data-toggle="collapse"
+					data-target="#primeiro1">
+					<p class="pt-2">Reprodutibilidade (s.f.)
+					</p>
+				</button>
+				<button   type="button" class=" my-3 col-12 col-md-4  btn btn_yellow text-dark border  btn-block " data-toggle="collapse"
+					data-target="#segundo1">
+					<p class="pt-2">Dataset (s.m.) 
+					</p>
+				</button>
+				<button type="button" class=" my-3 col-12 col-md-4 btn btn-dark border btn-block " data-toggle="collapse"
+					data-target="#terceiro1">
+					<p class="pt-2">Variável (s.f.) 
+					</p>
+				</button>
+			</div>	
+			<div class="row justify-content-center">
+				<div class="col-12 col-md-4  ">
+					<div id="primeiro1" class="collapse btn  bg-light rounded">
+						<div class='p-3 '>
+							<p>Qualidade de reprodutível, que se pode
+								reproduzir; que se pode exibir ou mostrar novamente. 
+							</p>
+						</div>	
+					</div>
+				</div>	
+				<div class="col-12 col-md-4  ">
+					<div id="segundo1" class="collapse  btn bg-light rounded">
+						<div class='p-3'>
+							<p>Conjunto de dados; coleção de observações, tabuladas
+								ou não, onde se associa, a cada indivíduo, um conjunto de
+								características.
+							</p>
+						</div>	
+					</div>
+				</div>
+				<div class="col-12 col-md-4">
+					<div id="terceiro1" class="collapse  btn  bg-light rounded">	
+						<div class='p-3 '>
+
+						<p>Símbolo ou nome simbólico ao qual será associado um
+							valor ou um objeto, eventualmente modificável.
+							</p>
+						</div>
+					</div>
+				</div>	
+			</div>
+		</div>
+	</div>
+
+	
+	<!-- Texto simples -->
+	<div class='container-fluid my-5'>
+		<div class='container'>
+			<div class='row justify-content-center align-items-center'>
+				<div class='col-12'>
+					<h1 class="mb-5" data-aos="fade-right" data-aos-easing="ease-in" data-aos-delay="300" data-aos-offset="0" ><strong>Operações com R</strong></h1>
+					<p>Os operadores matemáticos do R são muito semelhantes aos utilizados em outras linguagens de programação. Como na Matemática em geral, serão avaliados da esquerda para a direita e seguirão uma precedência. Alguns exemplos:
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Fim texto simples -->
+
+	<div class="container-fluid my-5 bg_capa_4">
+		<div class='container'>
+			<figcaption class="fig-caption mb-3 text-muted text-center"><i class="fas fa-mouse-pointer"></i> Clique sobre as imagens abaixo</figcaption>
+
+			<div class="row justify-content-center">
+			
+				<button  type="button" class=" my-3 col-12 col-md-3 btn btn-block " data-toggle="collapse"
+					data-target="#primeiro3">
+					<img src='img/imagem_10.png' alt=''  class='figure-img img-fluid rounded w-75'>
+					
+					
+				</button>
+				
+				<button   type="button" class=" my-3 col-12 col-md-3  btn   btn-block " data-toggle="collapse"
+					data-target="#segundo3">
+					<img src='img/imagem_11.png' alt=''  class='figure-img img-fluid rounded w-75'>
+
+				</button>
+				<button type="button" class=" my-3 col-12 col-md-3 btn   btn-block " data-toggle="collapse"
+					data-target="#terceiro3">
+					<img src='img/imagem_12.png' alt=''  class='figure-img img-fluid rounded w-75'>
+
+				</button>
+				<button type="button" class=" my-3 col-12 col-md-3 btn   btn-block " data-toggle="collapse"
+					data-target="#quarto3">
+					<img src='img/imagem_13.png' alt=''  class='figure-img img-fluid rounded w-75'>
+
+				</button>
+			</div>	
+			<div class="row justify-content-center">
+				<div class="col-12 col-md-3  ">
+					<div id="primeiro3" class="collapse btn  bg-light rounded">
+						<div class='p-3 '>
+							<p>Parênteses mudam a precedência das operações.
+							</p>
+						</div>	
+					</div>
+				</div>	
+				<div class="col-12 col-md-3  ">
+					<div id="segundo3" class="collapse  btn bg-light rounded">
+						<div class='p-3'>
+							<p>Operadores especiais como módulo.
+
+							</p>
+						</div>	
+					</div>
+				</div>
+				<div class="col-12 col-md-3">
+					<div id="terceiro3" class="collapse  btn  bg-light rounded">	
+						<div class='p-3 '>
+
+						<p>Multiplicação, divisão.
+
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-12 col-md-3">
+					<div id="quarto3" class="collapse  btn  bg-light rounded">	
+						<div class='p-3 '>
+
+						<p>Soma, subtração.
+
+							</p>
+						</div>
+					</div>
+				</div>	
+			</div>
+		</div>
+	</div>
+
+	<!-- Texto simples>
+	<div class='container-fluid my-5'>
+		<div class='container'>
+		   <div class='row justify-content-center align-items-center'>
+			   <div class='col-10 text-center'>
+					<hr>
+				   <p>Obs: Em uma expressão, o R utiliza uma regra básica da matemática: precedência dos operadores. 
+				</p>
+			   </div>
+		   </div>
+		</div>
+	</div>
+	< Fim texto simples -->
+
+	<!-- Texto simples -->
+	<div class='container-fluid py-5'>
+		<div class='container'>
+		   <div class='row justify-content-center align-items-center'>
+			   <div class='col-12'>
+				<h1 class="text-dark" data-aos="fade-right" data-aos-easing="ease-in" data-aos-delay="300" data-aos-offset="0">O RS<span class="lowercase" >tudio</span>
+				</h1>
+				<p class="text-dark">Veja o vídeo abaixo e aprenda e pratique algumas operações no RStudio.
+				</p>
+			</div>
+		   </div>
+		</div>
+	</div>
+	<!-- Fim texto simples -->
+	
+	<div class="container-fluid bg_capa_3 py-5 ">
+		<div class='container'>
+			
+			<div class="row m-1 justify-content-center py-3">
+				<div class="col-12 col-md-8 embed-responsive embed-responsive-16by9">
+					<iframe class="embed-responsive-item" src="https://player.vimeo.com/video/523965085" allowfullscreen></iframe>
+				</div>
+				
+			</div>
+		</div>	
+	</div>
+
+	<!-- Texto simples -->
+	<div class='container-fluid py-5 bg-black'>
+		<div class='container'>
+		    <div class='row justify-content-center align-items-center'>
+				<div class='col-12'>
+					<h1 class="text_yellow" data-aos="fade-right" data-aos-easing="ease-in" data-aos-delay="300" data-aos-offset="0">VARIÁVEIS, OPERADORES RELACIONAIS, STRINGS...
+					</h1>
+				</div>
+		   	</div>
+			<div class="row m-1 justify-content-center py-3">
+				<div class="col-12 col-md-8 embed-responsive embed-responsive-16by9">
+					<iframe class="embed-responsive-item" src="https://player.vimeo.com/video/523973628" allowfullscreen></iframe>
+				</div>
+			</div>
+	   </div>
+	</div>
+	
+
+	<!-- Texto simples -->
+	<div class='container-fluid my-5'>
+		<div class='container'>
+		   <div class='row justify-content-center align-items-center'>
+			   <div class='col-12'>
+				   <p>Agora vamos ver detalhes sobre as variáveis. Clique no ícone de áudio e ouça a explicação do tutor sobre os tipos de variáveis em Estatística. Acompanhe a explicação observando a imagem abaixo:
+				</p>
+			   </div>
+		   </div>
+		</div>
+	</div>
+	<!-- Fim texto simples -->
+	<!--Recurso Quadro resumo-->
+	<div class="container-fluid mb-5">
+		<div class='container text-center'>
+			<i class="fas fa-headphones fa-3x text-center my-3 bg_yellow rounded-circle p-3"></i>
+			<figcaption class="fig-caption mb-3 text-center text-muted"><i class="fas fa-mouse-pointer"></i> Clique no quadro abaixo para ouvir a explicação do instrutor. </figcaption>
+			
+			<div class='row justify-content-center align-items-center no-gutters'>
+				<div class='col-12'>
+					<div class='rounded shadow-lg no-gutters py-0 my-0'>
+						<button onClick="togglePlay(myAudio1)" type="button" class=" my-3 col-12 btn btn-block " data-toggle="collapse" data-target="#tabela">
+						<table class='table quadro-resumo text-center'>
+							<tr class='topo_tabela bg_yellow text-dark'>
+								<th colspan='2' class="border align-middle w-50">Quantitativas</th>
+								<th colspan='2' class="border align-middle w-50">Qualitativas (ou Categóricas)</th>
+
+							</tr>
+							<tr class='bg-light'>
+								<td rowspan='' class="border align-middle">
+									Contínuas
+
+								</td>
+								<td class="border align-middle">
+									Discretas
+								</td>
+								<td class="border align-middle">
+									Nominais
+								</td>
+								<td class="border align-middle">
+									Ordinais
+								</td>
+								
+							</tr>
+							<tr class='bg-light'>
+								
+								<td class="border align-middle">
+									Entre dois valores há uma infinidade de outros.<br>
+									Ex.: medidas de peso, volume etc.(*)
+								</td>
+								<td class="border align-middle">
+									Entre dois valores há um número determinado de outros.<br>
+									Ex.: contagens (*)
+								</td>
+								<td class="border align-middle">
+									Não há uma ordem definida dentre as categorias.<br>
+									Ex.: cores, gênero, ligado/desligado etc.
+								</td>
+								<td class="border align-middle">
+									Há uma ordem inerente às categorias.<br> 
+									Ex.: bom/ruim, 1º / 2º / 3º, etc. (*)(**)
+
+								</td>
+							</tr>
+							<tr class='bg-white text-left align-items-start'>
+								
+								<td colspan='4' class="border align-middle">
+									<span style="font-size: 0.8rem;" >(*) vale a Condição de Transitividade: para três valores dados A, B e C; se (A>B) e (B>C) então (A>C)<br>
+										(**) Qualquer código (“sistema de valores”) adotado para representar uma grandeza categórica ordinal precisa cumprir a Condição de Transitividade.</span>
+
+								</td>
+								
+							</tr>
+							
+							
+						</table>
+						</button>
+					</div>
+	
+					
+				</div>
+			</div>
+			<div id="tabela" class="collapse">
+				<div class="container-audio col-12">
+					<audio id="myAudio1" controls preload="none">
+							   <source src="audios/audio1.mp3" type="audio/ogg">
+							   Your browser dose not Support the audio Tag
+						   </audio>
+				</div>
+			</div>
+			
+		</div>
+	</div>			
+	<!--Fim Recurso Quadro resumo-->
+
+
+	
+
+
+
+	<!-- Texto simples -->
+	<div class='container-fluid py-5'>
+		<div class='container'>
+		   	<div class='row justify-content-center align-items-center'>
+			   	<div class='col-12'>
+					<h1 class="text-dark" data-aos="fade-right" data-aos-easing="ease-in" data-aos-delay="300" data-aos-offset="0">FUNÇÕES
+					</h1>
+				</div>
+		   	</div>
+		</div>
+	</div>
+	<!-- Fim texto simples -->
+	<div class="container-fluid bg_capa_3 py-5 mb-5 ">
+		<div class='container'>
+			
+			<div class="row m-1 justify-content-center py-3">
+				<div class="col-12 col-md-8 embed-responsive embed-responsive-16by9">
+					<iframe class="embed-responsive-item" src="https://player.vimeo.com/video/523964499" allowfullscreen></iframe>
+				</div>
+				
+			</div>
+		</div>	
+	</div>
+
+
+
+	<!-- Texto simples -->
+	<div class='container-fluid my-1 bg-dark py-5' >
+		<div class='container'>
+		   <div class='row justify-content-center align-items-center'>
+			   <div class='col-12 text-white text-center'>
+				   <h4>Que tal verificar se você entendeu bem os conceitos inicias apresentados até o momento? Vamos lá?
+				   </h4>
+			   </div>
+		   </div>
+		</div>
+	</div>
+	<!-- Fim texto simples -->
+
+	<!-- Texto simples -->
+	<div class='container-fluid my-5 py-5'>
+		<div class='container py-5'>
+		   <div class='row justify-content-center align-items-center'>
+			   <div class='col-12'>
+				   <h1 class='module-topic-title' data-aos="fade-down" data-aos-easing="ease-in" data-aos-delay="300" data-aos-offset="0">EXERCÍCIO #1</h1>
+				   <p>O R é um ambiente de computação numérica muito utilizado em estatística e ciência de dados de maneira geral, embora seja aplicado em domínios diversos. Não se pode dizer, sobre o R, que:</p>
+			   </div>
+		   </div>
+		   <div class='row align-items-center justify-content-center mt-5'>
+			<div class='col-12'>
+				<div id="questions1" class="align-items-center "></div>
+			</div>
+		</div>
+		</div>
+	</div>
+	<!-- Fim texto simples -->
+	<!-- Div responsável por adicionar as atividades que são incluídas no arquivo questions.js / Cada ID adiciona uma questão ou bloco de questões e estão diretamente ligadas aos bloqueios de módulos seguintes  -->
+	
+
+	
+	
+
+	<!-- Texto simples -->
+	<div class='container-fluid  bg_funcao py-5'>
+		<div class='container'>
+			
+
+			<div class='row justify-content-start align-items-start text-white row-eq-height my-5'>
+				
+				<div class='col-12 col-md-7 p-3 rounded bg-black-alpha'>
+					<h1 class='text_yellow' data-aos="fade-right" data-aos-easing="ease-in" data-aos-delay="300" data-aos-offset="0"><strong>FUNÇÕES NO R</strong>
+					</h1>
+						<p>No R, uma função é um bloco de instruções organizadas de maneira a realizar uma tarefa específica. O R tem um grande número de funções integradas, mas o usuário pode criar suas próprias funções.</p>
+						<p>Em R, uma função pode ou não precisar de argumentos de entrada, podendo também retornar, ou não, alguma saída.</p>
+						<p>Uma função R é criada utilizando-se o comando function. Já a instrução return() retorna um valor ou objeto, quando é o caso. A sintaxe básica para a definição de uma função em R é a seguinte:					</p>
+				</div>
+			</div>
+			<div class='row justify-content-center align-items-center bg-dark py-1'>
+				<div class='col-12 '>
+
+				<span style="color: red;"><i class="fas fa-dot-circle"></i></span>&nbsp;&nbsp;<span style="color: yellow;"><i class="fas fa-circle"></i></span>&nbsp;&nbsp; <span style="color: lawngreen;"><i class="fas fa-circle"></i></span>
+				</div>
+			</div>
+			<div class='row justify-content-center align-items-center bg-black py-3'>
+				<div class='col-0 text-dark'>
+					1<br>
+					2<br>
+					3<br>
+					4<br>
+					5
+
+					 
+				</div>
+				<div class='col-11 text-white'>
+					nome_função <- função (arg_1, arg_2, ...) {<br><br>
+						<em>Corpo da função</em><br><br>
+						return(valor_retornado)
+					 }
+					 
+				</div>
+				
+			</div>
+		</div>
+	</div>
+
+
+
+	<div class="container-fluid my-5 sectionOwl ct-mediaSection ct-u-paddingBoth40 ct-u-borderBoth"
+            data-height="" style="background: #FFF;">
+            <div class="container mb-5 ">
+                <div class="row justify-content-center mb-5 ">
+					<div class="col-12 mb-3">
+						<p>As diferentes partes de uma função são:
+						</p>
+						<figcaption class="fig-caption mb-3 text-center text-muted mt-5"><i class="fas fa-mouse-pointer"></i> Passe o mouse para ver mais</figcaption>
+
+					</div>
+
+                    <div class="col-xs-12 col-md-3 text-center align-items-center">
+                        <div class="flip-container y-flip-wrapper " ontouchstart="this.classList.toggle('hover');">
+                            <div class="flipper">
+                                <div class="front text-center bg_yellow border pt-5 rounded">
+									<h4 class="text-dark mt-5">nome_funcao 
+									</h4>
+									
+                                </div>
+                                <div class="back text-center pt-3">
+                                    <p>Este é o nome real da função. Ele é armazenado no ambiente R como um objeto com este nome.
+									</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-md-3 text-center">
+
+                        <div class="flip-container y-flip-wrapper" ontouchstart="this.classList.toggle('hover');">
+                            <div class="flipper">
+                                <div class="front text-center bg_yellow border pt-5">
+									<h4 class="text-dark mt-5">arg_1, arg_2... 
+									</h4>
+                                </div>
+                                <div class="back text-center pt-3">
+									<p>São os argumentos da função. Quando uma função é chamada, você normalmente passará valores de entrada como argumentos, respeitando a ordem em que foram estipulados quando da construção da função ou usando os nomes destes argumentos, explicitamente. Nem sempre uma função demandará argumentos. Além disso, os argumentos podem ter valores padrão.</p>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="col-xs-12 col-md-3 text-center">
+
+
+                        <div class="flip-container y-flip-wrapper" ontouchstart="this.classList.toggle('hover');">
+                            <div class="flipper">
+                                <div class="front text-center bg_yellow border pt-5">
+									<h4 class="text-dark mt-5">corpo da função 
+									</h4>
+                                </div>
+                                <div class="back text-center pt-3">
+									<p>Consistirá no conjunto de instruções, ou trecho de programa, ou subrotina, que define o que a função faz.
+									</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-xs-12 col-md-3 text-center">
+
+
+                        <div class="flip-container y-flip-wrapper" ontouchstart="this.classList.toggle('hover');">
+                            <div class="flipper">
+                                <div class="front text-center bg_yellow border pt-5">
+									<h4 class="text-dark mt-5">valor_retornado 
+									</h4>
+                                </div>
+                                <div class="back text-center pt-3">
+									<p>O valor de retorno de uma função, quando existe, é retornado quando da execução do comando return(), o que também encerra a execução da função.
+									</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    
+
+                </div>
+            </div>
+    </div>
+	<div class="container-fluid mt-5 py-5 bg-black">
+		<div class='container'>
+			<div class="row">
+				<div class="col-12 my-3 py-3 text-light">
+					<p>Clique nos vídeos e veja como criar e utilizar funções, no R.
+					</p>
+				</div>
+			</div>
+            <div class="row justify-content-start p-5"> <!--subir mais conteúdo, usar px-5-->
+                <div onclick="isPlaying('a1');" class="col p-1 m-1 text-center text_yellow efeito-box-item" style="padding: 0%;" >
+                    <a href="#exampleModalPreview" data-toggle="modal" data-target="#exampleModal_v1">
+                    <img id="thumb-a1"   src="img/imagem_21.jpg" class="already-watched border img-fluid" scrolling="no" style="border: 0;"></img></a>
+					<p><strong>FUNÇÕES
+					</strong></p>
+                </div>
+                <div onclick="isPlaying('a2');" class="col p-1 m-1 text-center text_yellow efeito-box-item" style="padding: 0%;" >
+                    <a href="#exampleModalPreview" data-toggle="modal" data-target="#exampleModal_v2">
+                    <img id="thumb-a2"  src="img/imagem_22.jpg" class="already-watched border img-fluid" scrolling="no" style="border: 0;"></img></a>
+					<p><strong>FUNÇÕES SORT(), SEQ() E REP()
+					</strong></p>
+                </div>
+                <div onclick="isPlaying('a3');" class="col p-1  m-1  text-center text_yellow efeito-box-item" style="padding: 0%;" >
+                    <a href="#exampleModalPreview" data-toggle="modal" data-target="#exampleModal_v3">
+                    <img id="thumb-a3"   src="img/imagem_23.jpg" class="already-watched border img-fluid" scrolling="no" style="border: 0;"></img></a>
+					<p><strong>FUNÇÕES COM DATA E HORA
+					</strong></p>
+                </div>
+            </div>
+        </div> 
+	</div>
+
+	<div class="modal fade right videoModal" id="exampleModal_v1" tabindex="-1" role="dialog" aria-labelledby="exampleModalPreviewLabel" aria-hidden="true">
+		<div class="modal-xl modal-dialog momodel modal-fluid gra" role="document">
+			<div class="modal-content-full-width modal-content" style="background-color: black;">
+				<div class='container-fluid  pt-5'>
+					<div class='container'>
+						<div class='row justify-content-center align-items-center'>
+
+
+							<div class=" justify-content-center embed-responsive embed-responsive-16by9">
+								<iframe class="embed-responsive-item" style="background-color: transparent"
+									src="https://player.vimeo.com/video/523960404" scrolling="no" frameborder="0"
+									allow="fullscreen"></iframe>
+							</div>
+
+						</div>
+					</div>
+				</div>
+				
+
+			</div>
+		</div>
+	</div>
+	
+	<div class="modal fade right videoModal" id="exampleModal_v2" tabindex="-1" role="dialog" aria-labelledby="exampleModalPreviewLabel" aria-hidden="true">
+		<div class="modal-xl modal-dialog momodel modal-fluid gra" role="document">
+			<div class="modal-content-full-width modal-content" style="background-color: black;">
+				<div class='container-fluid  pt-5'>
+					<div class='container'>
+						<div class='row justify-content-center align-items-center'>
+
+
+							<div class=" justify-content-center embed-responsive embed-responsive-16by9">
+								<iframe class="embed-responsive-item" style="background-color: transparent"
+									src="https://player.vimeo.com/video/523962819" scrolling="no" frameborder="0"
+									allow="fullscreen"></iframe>
+							</div>
+
+						</div>
+					</div>
+				</div>
+				
+
+			</div>
+		</div>
+	</div>
+		
+	
+	<div class="modal fade  right videoModal" id="exampleModal_v3" tabindex="-1" role="dialog" aria-labelledby="exampleModalPreviewLabel" aria-hidden="true">
+			<div class="modal-xl modal-dialog momodel modal-fluid gra" role="document">
+				<div class="modal-content-full-width modal-content" style="background-color: black;">
+
+					<div class='container-fluid  pt-5'>
+						<div class='container'>
+							<div class='row justify-content-center align-items-center'>
+
+
+								<div class=" justify-content-center embed-responsive embed-responsive-16by9">
+									<iframe class="embed-responsive-item" style="background-color: transparent"
+										src="https://player.vimeo.com/video/523962002" scrolling="no" frameborder="0"
+										allow="fullscreen"></iframe>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+	</div>
+
+
+	
+	
+	<!-- Texto simples -->
+	<div class='container-fluid mb-5 py-5 bg_plotar'>
+		<div class='container'>
+		   <div class='row justify-content-end align-items-center'>
+			   <div class='col-12 col-md-6 p-3 rounded bg-black-alpha float-right text-light '>
+				   <h1 class='mb-3 text_yellow' data-aos="fade-right" data-aos-easing="ease-in" data-aos-delay="300" data-aos-offset="0">PLOTAR GRÁFICOS EM R
+					</h1>
+					<p>Criar visualizações é uma etapa importante em um projeto de Ciência de Dados, porque isso nos ajuda a gerar insights a partir de uma massa de dados, verificar o funcionamento de um modelo ou mesmo comunicar aos outros o seu trabalho. O R possui um extenso suporte gráfico, tanto na forma de funções nativas quanto outras, implementadas e disponibilizadas na forma de bibliotecas.</p>
+			   </div>
+		   </div>
+		</div>
+	</div>
+	<!-- Fim texto simples -->
+
+	
+	
+	<!-- Exemplo de imagem -->
+	<div class='container-fluid mb-5'>
+		<div class='container'>
+			<div class='row justify-content-center align-items-center'>
+				<div class='col-12 col-md-12 col-lg-12' aria-hidden='true'>
+					<div class='row align-items-center'>
+						<div class='col-12 text-center order-1'>
+							<figure class="figure">
+								<img src='img/imagem_32.jpg' alt='' title="Fonte:Shutterstock" class='figure-img img-fluid rounded '>
+							</figure>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- fim de imagem -->
+
+	<div class="container-fluid my-1 bg-black py-5">
+		<div class='container'>
+			
+			<div class="row pt-5">
+				<div class="col-12 text-white">
+					<h1 class="text_yellow" data-aos="fade-right" data-aos-easing="ease-in" data-aos-delay="300" data-aos-offset="0">COMO PLOTAR UM GRÁFICO UTILIZANDO R
+					</h1>
+				</div>
+			</div>
+			<div class="row m-1 justify-content-center py-3">
+				<div class="col-12 col-md-8 embed-responsive embed-responsive-16by9">
+					<iframe class="embed-responsive-item mb-5" src="https://player.vimeo.com/video/523963291" allowfullscreen></iframe>
+				
+				</div>
+				
+
+			</div>
+		</div>	
+	</div>
+	
+	<!-- Texto simples -->
+	<div class='container-fluid my-1 bg-dark py-5' >
+		<div class='container'>
+		   <div class='row justify-content-center align-items-center'>
+			   <div class='col-12 text-white text-center'>
+				   <h4>Vamos fazer mais um exercício para saber se você entendeu o o que é uma função?
+				   </h4>
+			   </div>
+		   </div>
+		</div>
+	</div>
+	<!-- Fim texto simples -->
+
+	<!-- Texto simples -->
+	<div class='container-fluid my-5 py-5'>
+		<div class='container '>
+		   <div class='row justify-content-center align-items-center'>
+			   <div class='col-12'>
+				   <h1 class='module-topic-title' data-aos="fade-down" data-aos-easing="ease-in" data-aos-delay="300" data-aos-offset="0">EXERCÍCIO #2</h1>
+			   </div>
+			   <div class="col-12 mt-3">
+				   <p>Seja uma função implementada da seguinte forma:</p>
+				<div class='row justify-content-center align-items-center bg-dark py-1'>
+					<div class='col-12 '>
+	
+					<span style="color: red;"><i class="fas fa-dot-circle"></i></span>&nbsp;&nbsp;<span style="color: yellow;"><i class="fas fa-circle"></i></span>&nbsp;&nbsp; <span style="color: lawngreen;"><i class="fas fa-circle"></i></span>
+					</div>
+				</div>
+				<div class='row justify-content-center align-items-center bg-black py-3'>
+					<div class='col-0 text-dark'>
+						1<br>
+						2<br>
+						3<br>
+						4
+					</div>
+					<div class='col-11 text-white'>
+						minhaFuncao <- function(x, y, z) {<br>
+							  m <- sqrt(x ^ 2 + y ^ 2 + z ^ 2)<br>
+							  m <- m * 2<br>
+							  return(m)<br>
+							}<br>
+						 
+					</div>
+					
+				</div>
+				<p class="mt-5">Fazendo-se minhaFuncao(1, 2, 2) , o resultado retornado é:
+				</p>
+
+			   </div>
+		   </div>
+		   <div class='row align-items-center justify-content-center'>
+			<div class='col-12'>
+				<div id="questions2" class="align-items-center "></div>
+			</div>
+		</div>
+		</div>
+	</div>
+	
+	<!-- Fim texto simples -->
+
+	<div class="container-fluid my-5">
+		<div class='container'>
+			<hr class="bg_yellow ">
+		</div>
+	</div>
+
+
+	<!-- Fim texto simples -->
+	<div class='container-fluid my-5' data-aos="zoom-out" data-aos-easing="ease-in" data-aos-delay="300" data-aos-offset="0">
+		<div class='container'>
+			<div class='row text-center justify-content-center'>
+				<div class='col-10 text-center'>
+					<h1 class="text_yellow" style="font-size: 7rem; font-weight: 700; " >FÓRUM</h1>
+					<h3 class="" style="font-size: 3rem; font-weight: 700; ">de dúvidas</h3>
+					<h2 class="text_yellow mb-5" style="font-size: 7rem; font-weight: 700; " >1</h2>
+
+					
+					<p>Ficou com alguma dúvida sobre os conceitos e exemplos aplicados nesse capítulo?</p>
+					<p>Pergunte no fórum e o tutor Alexandre Nietupski vai te auxiliar.  Além dele, outros colegas também podem saber a resposta.</p>
+					<p>Além disso, o Fórum é aberto para discussão e reflexões sobre o curso e a linguagem de programação.</p>
+										
+						
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container-fluid my-5">
+		<div class='container'>
+			<hr class="bg_yellow ">
+		</div>
+	</div>
+
+	<!-- Texto simples -->
+	<div class='container-fluid my-5 '>
+		<div class='container'>
+		   <div class='row justify-content-center align-items-center'>
+			   <div class='col-12 col-md-6'>
+				   <h1 class='mb-5' data-aos="fade-right" data-aos-easing="ease-in" data-aos-delay="300" data-aos-offset="0">Atividade <span class="text-dark">1</span></h1>
+				   <p>Com base nos conhecimentos aprendidos nesse capítulo:</p>
+				   <ol type="1">
+					   <li>examine a ajuda da função corrplot;</li>
+					   <li>tente modificar os parâmetros da função de maneira a deixar o gráfico mais parecido com o da figura ao lado.</li>
+
+				   </ol>
+				   <p>Acesse Atividade 1 na área do curso e envie para o seu tutor. 
+				</p>
+			   </div>
+			   <div class='col-12 col-md-12 col-lg-6' aria-hidden='true'>
+				<div class='row align-items-center'>
+					<div class='col-12 text-center order-1'>
+						<figure class="figure">
+							<img src='img/imagem_33.jpg'  class='figure-img img-fluid rounded'>
+						</figure>
+					</div>
+				</div>
+			</div>
+			   
+		   </div>
+		</div>
+	</div>
+	<!-- Fim texto simples -->
+
+	<div class='container-fluid mb-0 pt-5 '>
+		<div class="row  p-0">
+			<img src="img/imagem_1.png" alt="" class="img-fluid position-relative p-0" >
+		</div>
+	</div>
+	<div class="container-fluid pb-5  text-white text-center bg-black">
+		<h3><i id="btn-next-1" class="fas fa-chevron-circle-down fa-2x blink_me" onclick="goto('block1');"></i> </h3>
+
+	</div>
+
+</div> <!-- block1 end -->
+
+
+
+
+<div id="block1" style="display: none;">
+<!--ESTRUTURA DE DADOS - PARTE 2-->
+
+	<!-- Texto simples -->
+	<div class='container-fluid bg-black py-5 my-1 menu02' id="menu2">
+		<div class='container'>
+			<div class='row justify-content-center align-items-center'>
+				<div class='col-12 text-center'>
+					<h1 class='text_yellow' style="font-size: 6rem; font-weight: 700; " data-aos="flip-up" data-aos-easing="ease-in" data-aos-delay="300" data-aos-offset="0" >ESTRUTURA DE DADOS</h1>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Fim texto simples -->
+	
+	<!-- Texto simples -->
+	<div class='container-fluid my-5 grid_section' grid-section="2">
+		<div class='container'>
+			<div class='row justify-content-center align-items-center'>
+				<div class='col-12'>
+					<p>Vamos iniciar esse capítulo conhecendo mais alguns termos que serão usados ao longo do curso:
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Fim texto simples -->
+	
+	
+	
+	<div class="container-fluid my-5">
+		<div class='container'>
+			<figcaption class="fig-caption mb-3 text-muted text-center"><i class="fas fa-mouse-pointer"></i> Clique sobre os tópicos abaixo.</figcaption>
+
+			<div class="row justify-content-center">
+			
+				<button  type="button" class=" my-3 col-12 col-md-4 btn btn-dark btn-block border" data-toggle="collapse"
+					data-target="#primeiro2">
+					<p class="pt-2">Dimensionalidade (s.f.) 
+					</p>
+				</button>
+				<button   type="button" class=" my-3 col-12 col-md-4  btn btn_yellow text-dark border  btn-block " data-toggle="collapse"
+					data-target="#segundo2">
+					<p class="pt-2">Heterogeneidade (s.f.) 
+					</p>
+				</button>
+				<button type="button" class=" my-3 col-12 col-md-4 btn btn-dark border btn-block " data-toggle="collapse"
+					data-target="#terceiro2">
+					<p class="pt-2">Coerção (s.f.) 
+					</p>
+				</button>
+			</div>	
+			<div class="row justify-content-center">
+				<div class="col-12 col-md-4  ">
+					<div id="primeiro2" class="collapse btn  bg-light rounded">
+						<div class='p-3 '>
+							<p>A quantidade (número) de dimensões inerentes a um dado.
+							</p>
+						</div>	
+					</div>
+				</div>	
+				<div class="col-12 col-md-4  ">
+					<div id="segundo2" class="collapse  btn bg-light rounded">
+						<div class='p-3'>
+							<p>Particularidade do que é composto por partes distintas.
+							</p>
+						</div>	
+					</div>
+				</div>
+				<div class="col-12 col-md-4">
+					<div id="terceiro2" class="collapse  btn  bg-light rounded">	
+						<div class='p-3 '>
+							<p>Repressão; ação de coagir, de forçar alguém a fazer alguma coisa ou a agir de certo modo.
+							</p>
+						</div>
+					</div>
+				</div>	
+			</div>
+		</div>
+	</div>
+
+	<!-- Texto simples -->
+	<div class='container-fluid no-gutters m-0 py-5 bg-black'>
+		<div class='container no-gutters p-0'>
+			<div class='row align-items-end pt-5 mb-0 no-gutters p-0'>
+                <div class='col-12 col-md-8 no-gutters my-0 px-0' data-aos="fade-right" data-aos-easing="ease-in" data-aos-delay="500" data-aos-offset="0">
+
+					<button onClick="togglePlay(myAudio2)" type="button" class=" my-3 col-12 btn  btn-block " data-toggle="collapse"
+					data-target="#111">
+                    <img src='img/imagem_30.png' class='figure-img img-fluid mb-0 w-75'>
+					</button>
+					
+
+					<figcaption class="fig-caption  text-white text-center"><i class="fas fa-headphones fa-2x text-dark text-center m-2 bg_yellow rounded-circle p-2"></i> Clique no cubo e ouça a explicação do tutor.</figcaption>
+
+                </div>
+                <div class='col-12 col-md-4 text-white' data-aos="fade" data-aos-easing="ease-in" data-aos-delay="1000" data-aos-offset="0">
+							<h1 class="text_yellow">ESTRUTURA DE DADOS</h1>
+							<h2 class="mb-5">Ficha Técnica</h2>
+                            <p class="text_yellow mb-0">Nome:</p>
+							<p>Cubo de Rubik</p>
+							<p class="text_yellow mb-0">Tipo de Estrutura:</p>
+							<p>Tridimensional, um tipo de dado</p>
+							<p class="text_yellow mb-0">Tipo de dado:</p>
+							<p class="mb-0">"Cor"</p>
+							<p>{branco, amarelo, laranja, vermelho, verde, azul}</p>
+							<p class="text_yellow mb-0">Mapeamento:</p>
+							<p>(lado, coluna, linha)
+							<p class="text_yellow mb-0">Similar:</p>
+							<p>Workbook Excel</p>
+							<p>(Por quê? E quais seriam as diferenças?)
+							</p>
+
+                    
+                </div>
+				
+				
+            </div>
+			<div id="111" class="collapse ">
+				<div class="container-audio col-12 ">
+					<audio id="myAudio2" controls preload="none">
+							   <source src="audios/audio2.mp3" type="audio/ogg">
+							   Your browser dose not Support the audio Tag
+						   </audio>
+				</div>
+			</div>
+			
+		</div>
+	</div>	
+	<!-- Fim texto simples -->
+
+	<!-- Texto simples -->
+	<div class='container-fluid bg-black py-5'>
+		<div class='container pt-5'>
+		   <div class='row justify-content-center align-items-center'>
+			   <div class='col-12 text-white'>
+				<p>Estruturas de Dados definem formas específicas de organizar e armazenar dados.</p>
+				<p>As Estruturas de Dados em R podem ser organizadas segundo a sua dimensionalidade ou a sua heterogeneidade.</p>
+				<p>Não existem estruturas 0-dimensionais (escalares) no R. Todas as estruturas de dados do R derivam das primitivas abaixo:</p>
+				
+			   </div>
+		   </div>
+		</div>
+	</div>
+	<!-- Fim texto simples -->
+
+	
+	<!-- Recurso Quadro resumo-->
+	<div class="container-fluid mb-5 bg-black">
+		<div class='container'>
+			
+			<div class='row justify-content-center align-items-center no-gutters'>
+				<div class='col-12'>
+					<div class='table-responsive rounded shadow-lg'>
+						<table class='table text-center quadro-resumo text-light' >
+							<tr class='bg-black ' style="border-top: #000 ;" >
+								<td class="">
+									
+								</td>
+								<td class="">
+									Homogêneas
+								</td>
+								<td class="">
+									Heterogêneas
+								</td>
+								
+							</tr>
+							<tr class='bg-black'>
+								<td class="border-down">
+									1 - Dimensional
+
+								</td>
+								<td class="border-down">
+									Vetores “atômicos”
+
+								</td>
+								<td class="">
+									Listas
+								</td>
+							</tr>
+							<tr class='bg-black'>
+								<td class="border-down">
+									2 - Dimensional
+
+								</td>
+								<td class="border-down">
+									Matrizes (Arrays 2D)
+
+								</td>
+								<td class="border-down">
+									Dataframes
+								</td>
+							</tr>
+							<tr class='bg-black'>
+								<td class="border-down">
+									n - dimensional
+
+
+								</td>
+								<td class="border-down">
+									Arrays
+
+								</td>
+								<td class="border-down">
+								</td>
+							</tr>
+						</table>
+					</div>
+	
+					
+				</div>
+			</div>
+			<div class="row justify-content-center align-items-center">
+				<div class="col-2">
+					<button onClick="togglePlay(myAudio3)" type="button" class=" my-3 col-12 btn  btn-block " data-toggle="collapse"
+					data-target="#444"><i class="fas fa-headphones fa-2x text-right my-3 bg_yellow rounded-circle p-2"></i></button>
+				</div>
+				<div class="col-6">
+					<figcaption class="fig-caption  text-white"><i class="fas fa-mouse-pointer"></i> Clique no ícone ao lado para ouvir a explicação do instrutor. </figcaption>
+
+				</div>
+
+			</div>
+			
+		</div>
+	</div>	
+	<!-- Texto simples -->
+	<div class='container-fluid my-5'>
+		<div class='container'>
+		   <div class='row justify-content-center align-items-center'>
+			<div id="444" class="collapse col-12 no-gutters">
+				<div class="container-audio ">
+					<audio id="myAudio3" controls preload="none">
+							   <source src="audios/audio3.mp3" type="audio/ogg">
+							   Your browser dose not Support the audio Tag
+						   </audio>
+				</div>
+			</div>
+		   </div>
+		</div>
+	</div>
+	<!-- Fim texto simples -->		
+	<!-- Fim Recurso Quadro resumo-->
+	<div class="container-fluid bg_capa_3  ">
+		<div class='container'>
+			<div class="row pt-5">
+				<div class="col-12 ">
+					<p>Falando um pouco sobre estruturas de dados:
+					</p>
+				</div>
+			</div>
+			<div class="row m-1 justify-content-center py-3">
+				<div class="col-12 col-md-8 embed-responsive embed-responsive-16by9">
+					<iframe class="embed-responsive-item" src="https://player.vimeo.com/video/538885652" allowfullscreen></iframe>
+				</div>
+				
+			</div>
+		</div>	
+	</div>
+
+
+
+	<!-- Exemplo de imagem -->
+
+	<!-- Texto simples -->
+	<div class='container-fluid my-5'>
+		<div class='container'>
+		   <div class='row justify-content-center align-items-center'>
+			   <div class='col-12'>
+				   <p>Agora vamos conhecer sobre os tipos primitivos de dados.
+				</p>
+			   </div>
+		   </div>
+		</div>
+	</div>
+	<!-- Fim texto simples -->
+	<!--Recurso Quadro resumo-->
+	<div class="container-fluid mb-5">
+		<div class='container text-center'>
+			<i class="fas fa-headphones fa-3x text-center my-3 bg_yellow rounded-circle p-3"></i>
+			<figcaption class="fig-caption mb-3 text-center text-muted"><i class="fas fa-mouse-pointer"></i> Clique no quadro abaixo para ouvir a explicação do instrutor. </figcaption>
+			
+			<div class='row justify-content-center align-items-center no-gutters'>
+				<div class='col-12'>
+					<div class='rounded shadow-lg no-gutters py-0 my-0'>
+						<button onClick="togglePlay(myAudio4)" type="button" class=" my-3 col-12 btn btn-block " data-toggle="collapse" data-target="#tabela">
+						<table class='table quadro-resumo text-center'>
+							<tr class='topo_tabela bg_yellow text-dark'>
+								<th colspan='' class="border align-middle w-25">Tipo</th>
+								<th colspan='' class="border align-middle w-25">Descrição</th>
+								<th colspan='' class="border align-middle w-25">"Alcance"<br>(depende da implementação) </th>
+								<th colspan='' class="border align-middle w-25">Exemplos</th>
+
+							</tr>
+							<tr class='bg-white'>
+								<td rowspan='' class="border align-middle">
+									Inteiro de precisão simples
+
+								</td>
+								<td class="border align-middle">
+									Inteiros positivos e negativos
+								</td>
+								<td class="border align-middle">
+									32 bits, aprox ±2<sup>*</sup>10<sup>9</sup>
+								</td>
+								<td class="border align-middle">
+									<strong>.Machine$integer.max</strong>
+								</td>
+								
+							</tr>
+							<tr class='bg-light'>
+								
+								<td class="border align-middle">
+									Ponto flutuante de dupla precisão ("double")
+								</td>
+								<td class="border align-middle">
+									Números Reais
+								</td>
+								<td class="border align-middle">
+									<u class="text-primary">IEEE 754</u>,<br>
+									±2<sup>*</sup>10<sup>-308</sup> ~ ±2<sup>*</sup>10<sup>308</sup>
+								</td>
+								<td class="border align-middle">
+									577.21165423
+
+								</td>
+							</tr>
+							<tr class='bg-white '>
+								<td rowspan='' class="border align-middle">
+									Lógico (ou "booleano")
+
+								</td>
+								<td class="border align-middle">
+									Verdadeiro ou falso
+								</td>
+								<td class="border align-middle">
+									TRUE, FALSE
+								</td>
+								<td class="border align-middle">
+									TRUE, T<br>
+									FALSE, F
+								</td>
+								
+							</tr>
+							<tr class='bg-light '>
+								<td rowspan='' class="border align-middle">
+									<em>string</em>
+
+								</td>
+								<td class="border align-middle">
+									Cadeia de caracteres
+								</td>
+								<td class="border align-middle">
+									0 ~ 65535 caracteres
+								</td>
+								<td class="border align-middle">
+									"Tangerina"
+								</td>
+								
+							</tr>
+							<tr class='bg-white '>
+								<td rowspan='' class="border align-middle">
+									<em>Raw</em>
+
+								</td>
+								<td class="border align-middle">
+									bytes
+								</td>
+								<td class="border align-middle">
+									-
+								</td>
+								<td class="border align-middle">
+									-
+								</td>
+								
+							</tr>
+							<tr class='bg-white '>
+								<td rowspan='' class="border align-middle">
+									Complexo
+
+								</td>
+								<td class="border align-middle">
+									Números Complexos
+								</td>
+								<td class="border align-middle">
+									par de "doubles"
+								</td>
+								<td class="border align-middle">
+									1.817354 + 0.550251i 
+								</td>
+								
+							</tr>
+							
+							
+						</table>
+						</button>
+					</div>
+	
+					
+				</div>
+			</div>
+			<div id="tabela" class="collapse">
+				<div class="container-audio col-12">
+					<audio id="myAudio4" controls preload="none">
+							   <source src="audios/audio5.mp3" type="audio/ogg">
+							   Your browser dose not Support the audio Tag
+						   </audio>
+				</div>
+			</div>
+			
+		</div>
+	</div>			
+	<!--Fim Recurso Quadro resumo-->
+	
+	
+	
+	
+
+	
+	
+	
+	<div class="container-fluid no-gutters mt-5 p-0 bg-black">
+		<div class='row align-items-center mt-5 mb-0 no-gutters p-0'>
+			
+
+			<div class='col-12 col-lg-6 pl-md-5 m-0 order-1 order-md-1'>
+				<div class="row m-0">
+					<div class="col-md-10 col-12 my-3 my-md-0 text-white ">
+						<h1 class="text_yellow" data-aos="fade-right" data-aos-easing="ease-in" data-aos-delay="300" data-aos-offset="0">.MACHINE
+						</h1>
+						<p>É uma variável especial que armazena uma lista com as características de representação numérica do sistema em que o R está executando. Estas características devem variar em função da arquitetura de hardware do computador, do sistema operacional e da implementação do interpretador R, principalmente. Para saber mais:</p>
+	
+						<p style="font-size: 1rem;">Fonte: https://stat.ethz.ch/R-manual/R-devel/library/base/html/zMachine.html</p>
+					</div>
+				</div>
+				
+			</div>
+			<div class='col-12 col-lg-6 no-gutters my-0 px-0'>
+				<img src='img/imagem_34.jpg' class='figure-img img-fluid mb-0 w-100'>
+			</div>
+		</div>
+	</div>		
+	<!-- Texto simples -->
+	<div class='container-fluid my-5 py-5'>
+		<div class='container'>
+		   <div class='row justify-content-center align-items-center'>
+			   <div class='col-12'>
+				   <h1 class='module-topic-title' data-aos="fade-down" data-aos-easing="ease-in" data-aos-delay="300" data-aos-offset="0">EXERCÍCIO #3</h1>
+			   </div>
+			   <div class='col-12'>
+
+			   	<p>Que tipo de estrutura de dados melhor acomodaria uma tabela contendo 2.000 registros com os seguintes atributos?</p>
+				</div>
+				<!--Recurso Quadro resumo-->
+	<div class="container-fluid mt-5">
+		<div class='container text-center'>
+			
+			<div class='row justify-content-center align-items-center no-gutters'>
+				<div class='col-12'>
+					<div class='rounded shadow-lg no-gutters py-0 my-0'>
+						
+						<table class='table quadro-resumo text-center'>
+							<tr class='topo_tabela bg_yellow text-dark'>
+								<th colspan='' class="border align-middle w-50">Atributo</th>
+								<th colspan='' class="border align-middle w-50">Tipo
+								</th>
+
+							</tr>
+							<tr class='bg-white'>
+								<td rowspan='' class="border align-middle">
+									idMidia
+
+								</td>
+								<td class="border align-middle">
+									Informação textual (<em>strings</em>)
+
+								</td>
+								
+								
+							</tr>
+							<tr class='bg-light'>
+								
+								<td class="border align-middle">
+									durSegundos
+
+								</td>
+								<td class="border align-middle">
+									Números inteiros
+								</td>
+								
+							</tr>
+							<tr class='bg-white '>
+								<td rowspan='' class="border align-middle">
+									tituloMidia
+
+
+								</td>
+								<td class="border align-middle">
+									Informação textual (strings)
+
+								</td>
+								
+								
+							</tr>
+							<tr class='bg-light '>
+								<td rowspan='' class="border align-middle">
+									valorInsercao
+								</td>
+								<td class="border align-middle">
+									Números de ponto flutuante
+
+								</td>
+								
+								
+							</tr>
+							<tr class='bg-white '>
+								<td rowspan='' class="border align-middle">
+									liberadaControleQualidade
+								</td>
+								<td class="border align-middle">
+									Booleanos
+
+								</td>
+								
+								
+							</tr>
+							
+							
+							
+						</table>
+					</div>
+	
+					
+				</div>
+			</div>
+			
+			
+		</div>
+	</div>			
+	<!--Fim Recurso Quadro resumo-->
+		   </div>
+		</div>
+		<div class='row align-items-center justify-content-center'>
+			<div class='col-12'>
+				<div id="questions3" class="align-items-center "></div>
+			</div>
+		</div>
+	</div>
+	<!-- Fim texto simples -->
+
+	<!-- Texto simples -->
+	<div class='container-fluid my-5 bg-black py-5'>
+		<div class='container'>
+		   <div class='row justify-content-center align-items-center mb-5'>
+			   <div class='col-12 text-white'>
+				   <h1 class='text_yellow' data-aos="fade-right" data-aos-easing="ease-in" data-aos-delay="300" data-aos-offset="0">VETORES ATÔMICOS
+				</h1>
+				<p>Vetores atômicos são estruturas de dados homogêneas e unidimensionais. Todos os elementos do vetor serão do mesmo tipo de dados.</p>
+				<p>Um vetor atômico pode ser atribuído a uma variável, ou pode constituir em elemento de uma outra estrutura de dados, como listas.</p>
+				<p>Exemplos:</p>
+				
+			   </div>
+
+		   </div>
+		<div class='row justify-content-center align-items-center bg-dark py-1 '>
+			<div class='col-12 '>
+
+			<span style="color: red;"><i class="fas fa-dot-circle"></i></span>&nbsp;&nbsp;<span style="color: yellow;"><i class="fas fa-circle"></i></span>&nbsp;&nbsp; <span style="color: lawngreen;"><i class="fas fa-circle"></i></span>
+			</div>
+		</div>
+		<div class='row justify-content-center align-items-center bg-black py-3'>
+			<div class='col-0 text-dark'>
+				1<br>
+				2<br>
+				3<br>
+				 
+			</div>
+			<div class='col-11 text-white'>
+				rs <- c("Mathias", "Porcina", "Malta", "Hipólito", "Salú")
+				<br>
+				F <- c(1L, 1L, 2L, 3L, 5L, 8L)
+				<br>
+				OneHot <- c(FALSE, FALSE, TRUE, FALSE, FALSE)
+			</div>
+		   
+		</div>
+	</div>
+	</div>
+	<!-- Fim texto simples -->
+
+	<div class="container-fluid bg_capa_3 my-5 ">
+		<div class='container'>
+			<div class="row pt-5">
+				<div class="col-12 text-white">
+					<h1 class="text-dark" data-aos="fade-right" data-aos-easing="ease-in" data-aos-delay="300" data-aos-offset="0">ESTRUTURAS HOMOGÊNEAS E VETORES ATÔMICOS
+					</h1>
+				</div>
+			</div>
+			<div class="row m-1 justify-content-center py-3">
+				<div class="col-12 col-md-8 embed-responsive embed-responsive-16by9">
+					<iframe class="embed-responsive-item" src="https://player.vimeo.com/video/523984267" allowfullscreen></iframe>
+				</div>
+				
+			</div>
+		</div>	
+	</div>
+
+	<!-- Texto simples -->
+	<div class='container-fluid my-5'>
+		<div class='container'>
+		   <div class='row justify-content-center align-items-center'>
+			   <div class='col-12'>
+				   <h1 class='mb-5' data-aos="fade-right" data-aos-easing="ease-in" data-aos-delay="300" data-aos-offset="0">COERÇÃO</h1>
+				   <p>Por vezes, é necessário tratar um dado considerando-o de um tipo que não seria o originalmente atribuído a ele. E isso chamamos <span class="text_yellow" ><strong>coerção de tipo</strong></span>.
+				</p>
+			   </div>
+		   </div>
+		</div>
+	</div>
+	<!-- Fim texto simples -->
+	
+	<!-- Exemplo de Imagem Full -->
+	<div class='container-fluid px-0 mb-5 position-relative'>
+		<picture>						
+			<img src='./img/imagem_36.jpg' class="img-fluid" >
+		</picture>
+	</div>
+	<!-- Fim da Imagem-->
+	<!-- Texto simples -->
+	<div class='container-fluid my-5'>
+		<div class='container'>
+		   <div class='row justify-content-center align-items-center'>
+			   <div class='col-12'>
+					<p>No R, coerções de tipo podem ocorrer de forma implícita, operada pelo R de forma automática em função de algum tipo de operação em curso, ou explícita, quando usuário especifica quando deve ocorrer uma coerção de tipo, e qual será o tipo de dado "de chegada".</p>
+					<p>Exemplo:</p>
+			   </div>
+		   </div>
+		   <div class='row justify-content-center align-items-center bg-dark mt-3 py-1'>
+			<div class='col-12 '>
+
+			<span style="color: red;"><i class="fas fa-dot-circle"></i></span>&nbsp;&nbsp;<span style="color: yellow;"><i class="fas fa-circle"></i></span>&nbsp;&nbsp; <span style="color: lawngreen;"><i class="fas fa-circle"></i></span>
+			</div>
+			</div>
+			<div class='row justify-content-center align-items-center bg-black py-3'>
+				<div class='col-0 text-dark'>
+					1<br>
+					2<br>
+					3<br>
+					4
+
+				</div>
+				<div class='col-11 text-white'>
+					booleanos <- c(TRUE, FALSE, FALSE)<br>
+					num <- as.integer(booleanos)<br>
+					num<br>
+					[1] 1 0 0
+				
+				</div>
+			
+			</div>
+			<div class='row justify-content-center align-items-center mt-5'>
+				<div class='col-12'>
+					 <p>Aqui a coerção foi explícita e induziu tomar o valor TRUE como 1.0 e FALSE como 0.0.
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Fim texto simples -->
+	<div class="container-fluid bg_capa_3  ">
+		<div class='container'>
+			<div class="row pt-5">
+				<div class="col-12 text-white">
+					<h1 class="text-dark" data-aos="fade-right" data-aos-easing="ease-in" data-aos-delay="300" data-aos-offset="0">COERÇÃO DE TIPOS
+					</h1>
+				</div>
+			</div>
+			<div class="row m-1 justify-content-center py-3">
+				<div class="col-12 col-md-8 embed-responsive embed-responsive-16by9">
+					<iframe class="embed-responsive-item" src="https://player.vimeo.com/video/523981342" allowfullscreen></iframe>
+				</div>
+				
+			</div>
+		</div>	
+	</div>
+	
+	<div class="container-fluid justify-content-center  mt-5 bg_carrosel py-5">
+		<div class='container py-5'>
+		
+		<div id="carousel2" class="carousel slide " data-interval="30000">
+			<div class="carousel-inner justify-content-center carrossel-ajustes text-center pb-5 bg-black-alpha rounded py-3">
+				<div class="row justify-content-center">
+					<div class="col-10">
+						<figcaption class="fig-caption mt-0 mb-3  text-white text-center"> &lt; &gt; Clique nas setas
+						</figcaption>
+						<h1 class="text_yellow">PARTICIONAMENTO
+						</h1>
+					</div>
+				</div>
+				<div class="carousel-item active col-12 text-white mb-3">
+					<div class="row justify-content-center">
+						<div class="col-10">
+					
+							<p>Uma vez dispostos em uma estrutura, podemos manipular os nossos dados de maneira a transformá-los, cortá-los em grupos, rearranjá-los – o que nosso intento demandar. Neste contexto, selecionar dados dentro da estrutura e, também, particioná-los, faz-se necessário. 
+							</p>
+
+							<a class="carousel-control-next" href="#carousel2" role="button"
+								data-slide="next">
+								<span class="carousel-control-next-icon ml-5 pl-5"
+									aria-hidden="true"></span>
+								<span class="sr-only">Next</span>
+							</a>
+						</div>
+					</div>	
+				</div>
+				<div class="carousel-item col-12  mb-3 text-white">
+					<div class="row justify-content-center">
+						<div class="col-10">
+							<p>Diferentes estruturas têm modos distintos de realizar este tipo de operação; por vezes, usaremos índices numéricos para referenciar posições dentro de nossa estrutura; de outras vezes, rótulos textuais. Vamos falar um pouco sobre estas operações.
+							</p>
+							<a class="carousel-control-prev"  href="#carousel2" role="button"
+								data-slide="prev">
+								<span class="carousel-control-prev-icon mr-5 pr-5" aria-hidden="true"></span>
+								<span class="sr-only">Previous</span>
+							</a>
+						</div>	
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+	</div>		
+	<div class="container-fluid bg-black mb-5 py-5  ">
+		<div class='container'>
+			<div class="row pt-5">
+				<div class="col-12 text-white">
+					<h1 class="text_yellow" data-aos="fade-right" data-aos-easing="ease-in" data-aos-delay="300" data-aos-offset="0">PARTICIONAMENTO
+
+					</h1>
+				</div>
+			</div>
+			<div class="row m-1 justify-content-center py-3">
+				<div class="col-12 col-md-8 embed-responsive embed-responsive-16by9">
+					<iframe class="embed-responsive-item" src="https://player.vimeo.com/video/523983316" allowfullscreen></iframe>
+				</div>
+				
+			</div>
+		</div>	
+	</div>
+	
+
+	<!-- Texto simples -->
+	<div class='container-fluid my-5'>
+		<div class='container'>
+		   <div class='row justify-content-center align-items-center'>
+			   <div class='col-12'>
+				   <h1 class='module-topic-title' data-aos="fade-right" data-aos-easing="ease-in" data-aos-delay="300" data-aos-offset="0">ARRAYS E MATRIZES
+				</h1>
+				   <p>Clique nas caixas abaixo e saiba o significado.
+				</p>
+			   </div>
+		   </div>
+		</div>
+	</div>
+	<!-- Fim texto simples -->
+	<div class="container-fluid my-5">
+		<div class='container'>
+			<div class="row justify-content-center">
+
+
+
+
+				<button type="button" class=" my-3 col-12 btn bg-dark btn-lg btn-block text_yellow " data-toggle="collapse"
+					data-target="#primeiro">
+					<h3>Arrays</h3>
+				</button>
+				<div id="primeiro" class="collapse">
+
+					<div class="row text-center">
+
+						<div class="col-12 my-5 p-3">
+							<p>Arrays são as estruturas de dados que implementam "hiperparalelepípedos", porque organizam-se em estruturas de N dimensões. Por exemplo: um array de dimensões (2, 3, 4) consistiria em 4 matrizes, cada uma com 2 linhas e 3 colunas. Os arrays são estruturas homogêneas: podem armazenar apenas um tipo de dado.</p>
+							<p>Um array é criado usando-se a função array().</p>
+														
+
+
+						</div>
+					</div>
+
+
+
+
+
+				</div>
+
+				<button type="button" class=" my-3 col-12 btn bg-dark btn-lg btn-block text_yellow " data-toggle="collapse"
+					data-target="#segundo">
+					<h3>Matrizes</h3>
+				</button>
+				<div id="segundo" class="collapse">
+
+					<div class="row p-0 justify-content-center text-center">
+
+						<div class="col-11 py-5 ">
+							<p>Já Matrizes são objetos nos quais os elementos são organizados em um layout retangular bidimensional. As matrizes são homogêneas, contêm elementos de um mesmo tipo.</p>
+							<p>Uma matriz é criada usando a função matrix().</p>
+						</div>
+					</div>
+
+
+
+
+
+
+				</div>
+
+				
+				
+			</div>
+		</div>
+	</div>
+
+	<div class="container-fluid bg-black  ">
+		<div class='container'>
+			<div class="row pt-5">
+				<div class="col-12 text-white">
+					<h1 class="text_yellow" data-aos="fade-right" data-aos-easing="ease-in" data-aos-delay="300" data-aos-offset="0">ESTRUTURAS HOMOGÊNEAS ARRAYS E MATRIZES
+					</h1>
+				</div>
+			</div>
+			<div class="row m-1 justify-content-center py-3">
+				<div class="col-12 col-md-8 embed-responsive embed-responsive-16by9">
+					<iframe class="embed-responsive-item" src="https://player.vimeo.com/video/523980091" allowfullscreen></iframe>
+				</div>
+				
+			</div>
+		</div>	
+	</div>
+
+	<!-- Texto simples -->
+	<div class='container-fluid my-5'>
+		<div class='container'>
+		   <div class='row justify-content-center align-items-center'>
+			   <div class='col-12'>
+				   <h1 class='mb-3' data-aos="fade-right" data-aos-easing="ease-in" data-aos-delay="300" data-aos-offset="0">LISTAS
+				</h1>
+				   <p>Listas são estruturas heterogêneas do R que podem conter elementos de diferentes tipos, como: números, strings, vetores e outras listas. Uma lista também pode conter matrizes ou funções como seus elementos. A lista é criada usando a função list() .
+				</p>
+				<h2 class="mt-5 text_yellow" ><strong>Criação de uma lista</strong>
+				</h2>
+				<p>A seguir, um exemplo para criar uma lista contendo strings, números, vetores e valores lógicos.
+				</p>
+			   </div>
+		   </div>
+		   <div class='row justify-content-center align-items-center bg-dark py-1'>
+			<div class='col-12 '>
+
+			<span style="color: red;"><i class="fas fa-dot-circle"></i></span>&nbsp;&nbsp;<span style="color: yellow;"><i class="fas fa-circle"></i></span>&nbsp;&nbsp; <span style="color: lawngreen;"><i class="fas fa-circle"></i></span>
+			</div>
+			</div>
+			<div class='row justify-content-center align-items-center bg-black py-3'>
+				<div class='col-0 text-dark'>
+					1<br>
+					2<br>
+
+				</div>
+				<div class='col-11 text-white'>
+					list_data <- list("Vermelho", "Verde", c(21,32,11), TRUE, 51L,23, 119,1)<br>
+					print(list_data)
+
+										
+				</div>
+			
+			</div>
+		</div>
+	</div>
+	<!-- Fim texto simples -->
+	<div class="container-fluid bg-black py-5 ">
+		<div class='container'>
+			<div class="row pt-5">
+				<div class="col-12 text-white">
+					<h1 class="text_yellow" data-aos="fade-right" data-aos-easing="ease-in" data-aos-delay="300" data-aos-offset="0">ESTRUTURAS HETEROGÊNEAS | LISTAS
+
+					</h1>
+				</div>
+			</div>
+			<div class="row m-1 justify-content-center py-3">
+				<div class="col-12 col-md-8 embed-responsive embed-responsive-16by9">
+					<iframe class="embed-responsive-item" src="https://player.vimeo.com/video/523982910" allowfullscreen></iframe>
+				</div>
+				
+			</div>
+		</div>	
+	</div>
+
+	<!-- Texto simples -->
+	<div class='container-fluid my-5'>
+		<div class='container'>
+		   <div class='row justify-content-center align-items-center'>
+			   <div class='col-12'>
+				   <h1 class='mb-3' data-aos="fade-right" data-aos-easing="ease-in" data-aos-delay="300" data-aos-offset="0">DATAFRAMES</h1>
+				   <p>Um Dataframe é uma estrutura heterogênea bidimensional, organiza-se em campos e registros, podendo cada campo conter um tipo de dado. Podem ser entendidos como uma implementação de "tabelas".</p>
+				   <p>A seguir estão as características de um Dataframe:</p>
+			    </div>
+			    <div class="col-12 rounded bg_yellow tert-dark pt-3 my-3 text-center">
+				   <p>Os nomes das colunas não devem estar vazios.
+				</p>
+			    </div>
+			    <div class="col-12 rounded bg_yellow tert-dark pt-3 my-3 text-center">
+				<p>Os nomes das linhas devem ser exclusivos.
+				</p>
+				</div>
+				<div class="col-12 rounded bg_yellow tert-dark pt-3 my-3 text-center">
+					<p>Os dados armazenados em um dataframe de dados podem ser numéricos, textuais ou booleanos.
+					</p>
+				</div>
+				<div class="col-12 rounded bg_yellow tert-dark pt-3 my-3 text-center">
+					<p>Cada coluna deve conter o mesmo número de itens de dados.
+					</p>
+				</div>
+
+		   </div>
+		</div>
+	</div>
+	<!-- Fim texto simples -->
+
+	<!-- Texto simples -->
+	<div class='container-fluid my-5 py-5'>
+		<div class='container'>
+		   <div class='row justify-content-center align-items-center'>
+			   <div class='col-12'>
+				   <h1 class='module-topic-title' data-aos="fade-down" data-aos-easing="ease-in" data-aos-delay="300" data-aos-offset="0">EXERCÍCIO #4</h1>
+			   </div>
+			   <div class="col-12">
+					<p>Um registro deve ser armazenado em uma estrutura de dados no R, para processamento posterior. Ele se conforma da seguinte maneira:
+					</p>				   
+
+			   </div>
+			   <div class="col-12 my-3">
+				id_midia: 123098456<br>
+				titulo: "Saltimbancos Trapalhões, Os"<br>
+				ano: 1981<br>
+				duracao_minutos: 95<br>
+				elenco: ("Renato Aragão", "Mussum", "Dedé Santana", "Zacarias", "Lucinha Lins")<br>
+				idioma: pt-br<br>
+				classIndicativa: livre<br>
+				
+			   </div>
+			   <div class="col-12">
+				   <p>Qual destes tipos de estruturas de dados provavelmente melhor acomodaria o registro?
+				</p>
+			   </div>
+		   </div>
+		   <div class='row align-items-center justify-content-center mt-3'>
+			<div class='col-12'>
+				<div id="questions4" class="align-items-center "></div>
+			</div>
+		</div>
+		</div>
+	</div>
+	<!-- Fim texto simples -->
+
+	<!-- Texto simples -->
+	<div class='container-fluid mt-5 pt-5 bg-black'>
+		<div class='container'>
+		   <div class='row justify-content-center align-items-center text-white'>
+			   <div class='col-12'>
+				   <P>Veja no vídeo a seguir outro tipo de estrutura heterogêneas, os dataframes como operar valores nas estruturas de dados.
+
+				</P>
+			   </div>
+		   </div>
+		</div>
+	</div>
+	<!-- Fim texto simples -->
+	<div class="container-fluid bg-black py-5">
+		<div class='container'>
+			
+			<div class="row m-1 justify-content-center py-3">
+				<div class="col-12 col-md-8 embed-responsive embed-responsive-16by9">
+					<iframe class="embed-responsive-item" src="https://player.vimeo.com/video/523981822" allowfullscreen></iframe>
+				</div>
+				
+			</div>
+		</div>	
+	</div>
+	
+	<!-- Texto simples -->
+	<div class='container-fluid my-5'>
+		<div class='container'>
+		   <div class='row justify-content-center align-items-center'>
+			   <div class='col-12'>
+				   <h1 class='mb-3' data-aos="fade-right" data-aos-easing="ease-in" data-aos-delay="300" data-aos-offset="0">O FLUXO DE UM PROJETO EM DADOS
+				</h1>
+				<p>R te assiste com muita coisa em Análise de Dados. ​</p>
+				<p>O ecossistema de bibliotecas disponíveis nos repositórios do R suporta praticamente todo o ciclo de vida de um projeto em Dados, da Importação e Pré-Tratamento de conjuntos de dados, passando por fases iterativas de Modelagem e entendimento até o momento de comunicar conclusões e insights obtidos daí.​				</p>
+			   </div>
+		   </div>
+		</div>
+	</div>
+	<!-- Fim texto simples -->
+	
+	
+	<!-- Exemplo de imagem -->
+	<div class='container-fluid mb-5'>
+		<div class='container'>
+			<div class='row justify-content-center align-items-center'>
+				<div class='col-12 col-md-12 col-lg-12' aria-hidden='true'>
+					<div class='row align-items-center'>
+						<div class='col-12 text-center order-1'>
+							<figure class="figure">
+								<img src='img/imagem_38.png'  class='figure-img img-fluid rounded '>
+							</figure>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- fim de imagem -->
+
+	<!-- Texto simples -->
+	<div class='container-fluid my-5 py-5'>
+		<div class='container'>
+		   <div class='row justify-content-center align-items-center'>
+			   <div class='col-12'>
+				   <h1 class='module-topic-title' data-aos="fade-down" data-aos-easing="ease-in" data-aos-delay="300" data-aos-offset="0">EXERCÍCIO #5</h1>
+			   </div>
+			   <div class="col-12 mt-3">
+				   <p>De posse de um conjunto de dados com uma lista de contribuintes do IRPF e seus rendimentos mensais, você deseja criar um atributo (ou "coluna", ou "campo") de nome "isento", que será populada com valores booleanos (TRUE ou FALSE), onde "TRUE" será atribuído nas observações onde "rendMensal" for menor ou igual a R$1.903,98. Considere que "rendMensal" é populada com números de ponto flutuante. Uma instrução que construiria este novo atributo seria:
+				</p>
+			   </div>
+		   </div>
+		   <div class='row align-items-center justify-content-center mt-3'>
+			<div class='col-12'>
+				<div id="questions5" class="align-items-center "></div>
+			</div>
+		</div>
+		</div>
+	</div>
+	<!-- Fim texto simples -->
+	<div class="container-fluid bg_capa_3 PY-5 ">
+		<div class='container'>
+			<div class="row pt-5">
+				<div class="col-12 ">
+					<h1 class="mb-3" data-aos="fade-right" data-aos-easing="ease-in" data-aos-delay="300" data-aos-offset="0">TIPOS PRIMITIVOS “RAROS”
+					</h1>
+				</div>
+			</div>
+			<div class="row m-1 justify-content-center py-3">
+				<div class="col-12 col-md-8 embed-responsive embed-responsive-16by9">
+					<iframe class="embed-responsive-item" src="https://player.vimeo.com/video/523980918" allowfullscreen></iframe>
+				</div>
+				
+			</div>
+		</div>	
+	</div>
+
+	<!-- Texto simples -->
+	<div class='container-fluid my-5 '>
+		<div class='container'>
+		   <div class='row justify-content-center align-items-center'>
+			   <div class='col-12'>
+				   <h1 class='mb-5' data-aos="fade-right" data-aos-easing="ease-in" data-aos-delay="300" data-aos-offset="0">Atividade <span class="text-dark">2</span></h1>
+				   <p>Com base nos conhecimentos aprendidos nesse capítulo:
+
+				</p>
+				 
+				<p class="mt-3">Crie um dataframe com os seguintes dados dos colegas de classe:
+				</p>
+				<ol type="a">
+					<li>Nome</li>
+					<li>Idade (pode-se mentir livremente, aqui...)</li>
+					<li>Matrícula (inventar também não é problema)</li>
+					<li>Onde trabalha</li>
+					<li>Salário ( “imaginário”, limitado a R$50e3 *)</li>
+					
+				</ol>
+				   <p>Acesse Atividade 2 na área do curso e envie para o seu tutor. 
+				</p>
+			   </div>
+			   
+			   
+		   </div>
+		</div>
+	</div>
+	<!-- Fim texto simples -->
+	<div class="container-fluid my-5">
+		<div class='container'>
+			<hr class="bg_yellow ">
+		</div>
+	</div>
+	<!-- Fim texto simples -->
+	<div class='container-fluid my-5' data-aos="zoom-out" data-aos-easing="ease-in" data-aos-delay="300" data-aos-offset="0">
+		<div class='container'>
+			<div class='row text-center justify-content-center'>
+				<div class='col-10 text-center'>
+					<h1 class="text_yellow" style="font-size: 7rem; font-weight: 700; " >FÓRUM</h1>
+					<h3 class="" style="font-size: 3rem; font-weight: 700; ">de dúvidas</h3>
+					<h2 class="text_yellow mb-5" style="font-size: 7rem; font-weight: 700; " >2</h2>
+
+					
+					<p>Ficou com alguma dúvida sobre os conceitos e exemplos aplicados nesse capítulo?</p>
+					<p>Pergunte no fórum e o tutor Alexandre Nietupski vai te auxiliar.  Além dele, outros colegas também podem saber a resposta.</p>
+					<p>Além disso, o Fórum é aberto para discussão e reflexões sobre o curso e a linguagem de programação.</p>
+										
+						
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container-fluid my-5">
+		<div class='container'>
+			<hr class="bg_yellow ">
+		</div>
+	</div>
+
+	<div class='container-fluid mb-0 pt-5 '>
+		<div class="row  p-0">
+			<img src="img/imagem_1.png" alt="" class="img-fluid position-relative p-0" >
+		</div>
+	</div>
+	<div class="container-fluid pb-5  text-white text-center bg-black">
+		<h3><i id="btn-next-2" class="fas fa-chevron-circle-down fa-2x blink_me" onclick="goto('block2');"></i> </h3>
+
+	</div>
+</div> <!-- block2 end -->
+
+
+
+
+<div id="block2" style="display: none;">
+<!--CONSIDERAÇÕES FINAIS-->
+
+	<!-- Texto simples -->
+	<div class='container-fluid bg-black py-5 my-1' id="menu2">
+		<div class='container'>
+			<div class='row justify-content-center align-items-center'>
+				<div class='col-12 text-center'>
+					<h1 class='text_yellow' style="font-size: 6rem; font-weight: 700; " data-aos="flip-up" data-aos-easing="ease-in" data-aos-delay="300" data-aos-offset="0" >CONSIDERAÇÕES FINAIS</h1>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Fim texto simples -->
+
+	<!-- Texto simples -->
+	<div class='container-fluid pt-5 bg-black grid_section' grid-section="3">
+		<div class='container'>
+		   <div class='row justify-content-center align-items-center'>
+			   <div class='col-12 text-white'>
+				<p>O R é uma numérica livre, gratuita e sob uma comunidade madura, crescente e ativa, para Computação aplicada à Estatística. R é usado em Ciência de Dados nos domínios os mais diversos, por empresas, meios acadêmicos e entusiastas.</p>
+				<p>Não é uma “bala de prata”, mas é potente, versátil e portável a ponto de poder ser incorporado a outros sistemas, complementando suas funcionalidades, por exemplo.</p>
+				
+			   </div>
+		   </div>
+		</div>
+	</div>
+	<!-- Fim texto simples -->
+	<!-- Exemplo de Texto com imagem a direita -->
+	<div class='container-fluid py-5 bg-black '>
+		<div class='container '>
+			<div class='row justify-content-center align-items-start '>
+				<div class='col-12 col-md-12 col-lg-6 text-white'>
+					<p>As estruturas de dados são variadas (listas, matrizes, dataframes etc.), sendo o vetor, o “átomo”. Por ser “programável”, garante a reprodutibilidade de tarefas de processamento e análise.</p>
+					<p>No concernente à visualização de dados, dispõe de uma miríade de componentes variados, amplamente customizáveis.</p>
+					
+				</div>
+				<div class='col-12 col-md-12 col-lg-6 ' aria-hidden='true'>
+					<div class='row align-items-center '>
+						<div class='col-12 text-center '>
+							<figure class="figure ">
+								<img src='img/imagem_39.jpg' class='figure-img img-fluid rounded '>
+							</figure>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Texto simples -->
+	<div class='container-fluid my-5'>
+		<div class='container'>
+		   <div class='row justify-content-center align-items-start'>
+			   <div class='col-12 col-md-6'>
+				<p>No R, as estruturas de dados podem ser construídas a partir de outras. </p>
+				<p>Há estruturas primitivas, a saber: vetores “atômicos”, arrays, listas e dataframes.</p>
+			   </div>
+				<div class='col-12 col-md-6'>
+				   <p>Os tipos primitivos de dados, no R, são: inteiro, número de dupla precisão, lógico (“booleano”), string, raw e complexo. Os valores podem sofrer coerção de tipo, deliberadamente ou por conta da operação em curso.
+				</p>
+				</div>
+		   </div>
+		</div>
+	</div>
+	<!-- Fim texto simples -->
+	
+	<!--  recurso destaque-->
+	<div class="container-fluid mb-5">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-12 col-sm-12 col-md-12 col-lg-12">
+					<hr class="bg_yellow ">
+
+					<h4 class=" text-center m-0 p-0"><strong>Uma vez organizados em uma estrutura conveniente, os dados podem ser
+						manipulados como se queira, visando um certo resultado.
+						</strong></h4>
+				<hr class="bg_yellow ">
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- recurso destaque-->
+
+	<!-- Texto simples -->
+	<div class='container-fluid my-5 '>
+		<div class='container'>
+		   <div class='row justify-content-center align-items-center'>
+			   <div class='col-12 '>
+				   <h1 class='mb-5'>Atividade <span class="text-dark">Final</span></h1>
+				   <p>Construa uma lista que contenha duas matrizes de valores booleanos, geradas a partir da aplicação dos critérios abaixo sobre uma matriz de correlação de Pearson obtida a partir da comparação dos atributos do conjunto de dados mtcars, conforme visto no curso:
+				</p>
+				 
+				<ul>
+					<li>"corPositiva", onde haverá TRUE nas posições que corresponderem àquelas, na matriz de correlação, onde houver valores superiores ao limiar 0.8.</li>
+					<li>"corNegativa", onde haverá TRUE nas posições que corresponderem àquelas, na matriz de correlação, onde houver valores inferiores ao limiar –0.7.</li>
+					
+					
+				</ul>
+					<p>Finalmente, plote gráficos de correlação a partir das matrizes "corPositiva" e "corNegativa". Interprete esses resultados e experimente limiares diferentes dos propostos.
+					</p>
+				   <p>Acesse Atividade Final na área do curso e envie para o seu tutor. 
+				</p>
+			   </div>
+			   
+			   
+		   </div>
+		</div>
+	</div>
+	<!-- Fim texto simples -->
+	<!-- barra da capa -->
+	<div class='container-fluid bg-transparent  pt-5 '>
+		<div class="row  p-0">
+			<img src="img/imagem_1.png" alt="" class="img-fluid position-relative p-0" >
+		</div>
+	</div>
+
+	<!-- Texto simples -->
+	<div class='container-fluid grid_eof py-5 bg-black'>
+		<div class='container'>
+		   <div class='row justify-content-center align-items-center'>
+			   <div class='col-12 text-white'>
+				<p>Agora que chegou ao final do curso, utilize o nosso fórum para compartilhar seus conhecimentos aprendidos e como você os tem aplicado no seu trabalho. </p>
+				<p>Não esqueça também da Avaliação de Reação, onde você pode avaliar sua experiência no curso. Sua opinião é muito importante para que a gente possa seguir oferendo curso e conteúdos de qualidade.				   </p>
+			   </div>
+		   </div>
+		</div>
+	</div>
+	<!-- Fim texto simples -->
+</div> <!-- block3 end -->
+
+
+	<footer class="bg-black text-center py-5 text-light">
+	</footer>
+
+
+
+
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
+<script src="assets/js/rx-lazy.js"></script>
+<script src="apiwrappers/SCORM_12_APIWrapper.js"></script>
+<script src="js/scripts.js"></script>
+<script type='text/javascript' src='js/questions.js'></script>
+
+<script>
+	AOS.init(100);
+</script>
+<script>
+	$(document).ready(function() {
+ 
+	 setTimeout(function(){
+		 $('body').addClass('loaded');
+	 }, 500);
+
+	});
+	function goto(blockName) {
+		var block;
+		var n;
+
+		try {
+			n = parseInt(blockName.substr(5), 10);
+			$('#btn-next-' + n).removeClass('blink_me');
+			console.log(blockName);
+			block = $('#' + blockName);
+			console.log(block.attr('id'));
+			block.show(2500);
+			$('html,body').scrollTop(block.offset().top, 2000);
+		} catch(e) {
+			console.warn('ERROR');
+			console.error(e);
+		}
+	}
+</script>
+<script>
+	var prevScrollpos = window.pageYOffset;
+	window.onscroll = function () {
+		var currentScrollPos = window.pageYOffset;
+		if (prevScrollpos > currentScrollPos) {
+			document.getElementById("navbar").style.top = "0";
+		} else {
+			document.getElementById("navbar").style.top = "-50px";
+		}
+		prevScrollpos = currentScrollPos;
+	}
+
+	var myAudio = document.getElementById("myAudio1");
+
+
+	function togglePlay(myAudio1) {
+  	return myAudio1.paused ? myAudio1.play() : myAudio1.pause();
+
+	}
+
+	var myAudio2 = document.getElementById("myAudio2");
+
+	function togglePlay(myAudio2) {
+  	return myAudio2.paused ? myAudio2.play() : myAudio2.pause();
+	}
+
+	var myAudio3 = document.getElementById("myAudio3");
+
+	function togglePlay(myAudio3) {
+  	return myAudio3.paused ? myAudio3.play() : myAudio3.pause();
+	}
+
+	var myAudio4 = document.getElementById("myAudio4");
+
+	function togglePlay(myAudio4) {
+  	return myAudio4.paused ? myAudio4.play() : myAudio4.pause();
+	}
+
+	var myAudio5 = document.getElementById("myAudio5");
+
+	function togglePlay(myAudio5) {
+  	return myAudio5.paused ? myAudio5.play() : myAudio5.pause();
+	}
+	var myAudio6 = document.getElementById("myAudio6");
+
+	function togglePlay(myAudio6) {
+  	return myAudio6.paused ? myAudio6.play() : myAudio6.pause();
+	
+	
+	
+
+	
+}
+
+</script>
+</html>
+
+

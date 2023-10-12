@@ -1,0 +1,22 @@
+.dropdown-item {
+	cursor: pointer;
+}
+
+.grid_disabled {
+  color: #f88 !important;
+}
+
+.grid_active {
+  color: gold !important;
+}
+
+.blink_me {
+  cursor: pointer;
+  animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
